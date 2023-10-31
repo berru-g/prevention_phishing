@@ -13,7 +13,7 @@ body {
 }
 h1 {
   animation-name: bounce-in-top;
-  animation-duration: 2s;
+  animation-duration: 1s;
 }
 @keyframes bounce-in-top {
   from {
@@ -61,7 +61,7 @@ a{color:white;text-decoration:none;}
 .info:hover {
   background-color: #808080;
 }
-            </style>
+</style>
 </head>
 <body>
     

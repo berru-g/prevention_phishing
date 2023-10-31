@@ -6,24 +6,25 @@
 
 **destiné aux white hat apprenant**
 
-    - Créer une fail dans form puis l'exploiter
 
 ### Monter serveur
 
+    
     - http://localhost/MAMP/
-    - http://localhost/test/ 
+    - http://localhost 
     - verif config/php.ini
-    - lier au formulaire php
+    - Créer $bdd puis configurer
 
 ### Create formulaire
 
     - index.php 
-    - <?php include('contact.php'); ?>
+    - Créer une fail dans le formulaire puis l'exploiter
+   
 
 ###  Open tool hack
 
-    - StalkPhish-master / 
+    - StalkPhish 
     - sqlmap
 
-**retrouver la base de données et injecter sql**
+**retrouver la base de données - si necessaire injecter du sql ou js**
     
